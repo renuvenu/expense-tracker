@@ -1,1 +1,34 @@
-<p>savings-display works!</p>
+<mat-card class="card">
+  <mat-card-content class="card-content">
+    <div>
+      <div class="desc">
+        <button
+          mat-icon-button
+          color="primary"
+          aria-label="Example icon button with a home icon"
+        >
+          <mat-icon>receipt_long</mat-icon>
+        </button>
+        <h2>{{ savings.name }} - {{ convertDate(savings.date) }}</h2>
+      </div>
+      <div class="amount">
+        <p style="font-weight: 600">Total amount - {{ savings.total }}</p>
+        <h2>💲{{ savings.amount }}</h2>
+      </div>
+    </div>
+    <div class="movie-content">
+      <div class="buttons">
+        <button mat-raised-button color="primary" (click)="onEdit(savings.id)">
+          Edit
+        </button>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="onDelete(savings.id)"
+        >
+          Delete
+        </button>
+      </div>
+    </div></mat-card-content
+  ></mat-card
+>

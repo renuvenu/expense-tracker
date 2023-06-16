@@ -15,4 +15,8 @@ export class SideBarComponent {
   moveToSavings() {
     this.router.navigate(['/savings']);
   }
+
+  moveToDash() {
+    this.router.navigate(['/dashboard']);
+  }
 }

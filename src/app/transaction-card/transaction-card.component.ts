@@ -31,6 +31,11 @@ export class TransactionCardComponent {
     this.idToDelete.emit(id);
   }
   convertDate(date: Date) {
-    return date.toString();
+    return new Date(date).toLocaleDateString('en-us', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    });
   }
 }

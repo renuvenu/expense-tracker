@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TransactionServiceService } from '../transaction-service.service';
+import { SavingsDisplayComponent } from '../savings-display/savings-display.component';
+import { AddSavingsService } from '../add-savings.service';
 
 @Component({
   selector: 'app-add-savings-fprm',
@@ -13,36 +15,24 @@ export class AddSavingsFprmComponent {
     date: [, Validators.required],
     amount: ['', Validators.required],
     name: ['', Validators.required],
-    // total: [, Validators.required],
+    total: [, Validators.required],
   });
-
-  categories = [
-    {
-      value: 'food',
-    },
-    {
-      value: 'rent',
-    },
-    {
-      value: 'entertainment',
-    },
-  ];
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    private transactionService: TransactionServiceService
+    private savingService: AddSavingsService
   ) {}
 
   ngOnInit() {}
 
   onSubmit() {
-    this.transactionService
-      .addTransaction(this.transactionForm.value)
+    this.savingService
+      .addSaving(this.transactionForm.value)
       .subscribe((val) => {
         this.transactionForm.reset();
-        this.router.navigate(['/tracker']);
+        this.router.navigate(['/savings']);
       });
 
     // this.moviesService
@@ -63,7 +53,7 @@ export class AddSavingsFprmComponent {
     return this.transactionForm.get('name');
   }
 
-  // get totalError() {
-  //   return this.transactionForm.get('total');
-  // }
+  get totalError() {
+    return this.transactionForm.get('total');
+  }
 }

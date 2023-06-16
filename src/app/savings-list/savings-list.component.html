@@ -1,1 +1,20 @@
-<p>savings-list works!</p>
+<div class="container">
+  <div class="button">
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      (click)="addSavings()"
+    >
+      Add Savings
+    </button>
+  </div>
+  <div class="cards">
+    <ng-container *ngFor="let transaction of savings">
+      <app-savings-display
+        [savings]="transaction"
+        (idToDelete)="onDelete($event)"
+      ></app-savings-display>
+    </ng-container>
+  </div>
+</div>

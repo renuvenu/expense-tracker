@@ -25,8 +25,14 @@ import { AddSavingsFprmComponent } from './add-savings-fprm/add-savings-fprm.com
 import { EditSavingsFormComponent } from './edit-savings-form/edit-savings-form.component';
 import { SavingsDisplayComponent } from './savings-display/savings-display.component';
 import { SavingsListComponent } from './savings-list/savings-list.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '/dashboard',
+    pathMatch: 'full',
+  },
   {
     path: 'tracker',
     component: TransactionManagementComponent,
@@ -51,6 +57,10 @@ const routes: Routes = [
     path: 'edit-savings/:id',
     component: EditSavingsFormComponent,
   },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+  },
 ];
 
 @NgModule({
@@ -65,6 +75,7 @@ const routes: Routes = [
     EditSavingsFormComponent,
     SavingsDisplayComponent,
     SavingsListComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

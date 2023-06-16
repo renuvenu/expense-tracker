@@ -1,5 +1,5 @@
 .card {
-    max-width: 400px;
+    max-width: 300px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -7,6 +7,12 @@
     border-radius: 14px;
     overflow: hidden;
     padding: 16px;
+}
+
+.container {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
 }
 
 .desc {
