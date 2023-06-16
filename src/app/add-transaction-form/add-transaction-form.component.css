@@ -1,0 +1,23 @@
+.container {
+    padding: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.card {
+    max-width: 500px;
+    margin: 50px auto;
+}
+
+.form-data {
+    display: flex;
+    gap: 16px;
+    padding-bottom: 16px;
+}

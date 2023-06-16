@@ -1,0 +1,40 @@
+<mat-card class="card">
+  <mat-card-content class="card-content">
+    <div>
+      <div class="desc">
+        <button
+          mat-icon-button
+          color="primary"
+          aria-label="Example icon button with a home icon"
+        >
+          <mat-icon>receipt_long</mat-icon>
+        </button>
+        <h2>
+          {{ transaction.category }} - {{ convertDate(transaction.date) }}
+        </h2>
+      </div>
+      <div class="amount">
+        <p style="font-weight: 600">{{ transaction.description }}</p>
+        <h2>💲{{ transaction.amount }}</h2>
+      </div>
+    </div>
+    <div class="movie-content">
+      <div class="buttons">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="onEdit(transaction.id)"
+        >
+          Edit
+        </button>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="onDelete(transaction.id)"
+        >
+          Delete
+        </button>
+      </div>
+    </div></mat-card-content
+  ></mat-card
+>

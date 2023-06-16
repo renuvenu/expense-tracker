@@ -1,0 +1,9 @@
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+h2 {
+    margin: 0;
+    place-content: center;
+}

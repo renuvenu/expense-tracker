@@ -1,0 +1,20 @@
+<p>
+  <mat-drawer-container class="example-container" autosize>
+    <mat-toolbar color="primary" class="nav">
+      <button
+        mat-icon-button
+        style="color: white"
+        aria-label="Example icon button with a home icon"
+        (click)="drawer.toggle()"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <h2>Expense Tracker</h2>
+    </mat-toolbar>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <p>Menu</p>
+      <button (click)="moveToTracker()">Transaction Management</button>
+      <button (click)="moveToSavings()">Savings Tracker</button>
+    </mat-drawer>
+  </mat-drawer-container>
+</p>
