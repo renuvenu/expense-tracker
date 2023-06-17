@@ -1,10 +1,17 @@
 <div class="container">
+  <div class="note">
+    <h2>
+      **Note: Create your savings for this month. You can edit it. If needed to
+      create new savings for this month, delete the current one.**
+    </h2>
+  </div>
   <div class="button">
     <button
       type="submit"
       mat-raised-button
       color="primary"
       (click)="addSavings()"
+      [disabled]="!showAddButton"
     >
       Add Savings
     </button>

@@ -14,10 +14,10 @@ interface Transaction {
 }
 
 interface Savings {
-  name: string,
-  date: Date,
-  amount: number,
-  total: number
+  name: string;
+  date: Date;
+  amount: number;
+  total: number;
 }
 
 @Component({
@@ -40,13 +40,24 @@ export class DashboardComponent {
   ngOnInit() {
     this.savingsService.getSaving().subscribe((val) => {
       let amount = val as Array<Object>;
-      console.log(amount);
-
-      this.totalBalance = (amount.find((data: any) => new Date(data.date).getMonth() === new Date().getMonth()) as Savings).total
+      this.totalBalance =
+        (
+          amount.find(
+            (data: any) =>
+              new Date(data.date).getMonth() === new Date().getMonth()
+          ) as Savings
+        )?.total || 0;
       this.transactionService.getTransactions().subscribe((val) => {
-        this.transactionDetails = val;
-        this.getCurrentBalance();
-        this.transactionDetails.reverse();
+        let data = val;
+        this.transactionDetails = data as Array<Transaction>;
+        this.transactionDetails = this.transactionDetails.sort(
+          (a: Transaction, b: Transaction) => {
+            return new Date(b.date).getTime() - new Date(a.date).getTime();
+          }
+        );
+        if (this.totalBalance > 0) {
+          this.getCurrentBalance();
+        }
       });
     });
   }
@@ -57,10 +68,10 @@ export class DashboardComponent {
   getCurrentBalance() {
     let amount = 0;
     this.transactionDetails.forEach((val: any) => {
-      if (val.transactionType === 'Credit') {
-        amount += val.amount;
-      } else {
-        amount -= val.amount;
+      if (new Date(val.date).getMonth() === new Date().getMonth()) {
+        val.transactionType === 'Credit'
+          ? (amount += val.amount)
+          : (amount -= val.amount);
       }
     });
     this.balance = this.totalBalance + amount;

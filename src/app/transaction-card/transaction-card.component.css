@@ -10,9 +10,9 @@
 }
 
 .descr {
-    width: 200px;
+    max-width: 200px;
     height: 70px;
-    overflow: scroll;
+    /* overflow: scroll; */
     display: flex;
     align-items: center;
 }

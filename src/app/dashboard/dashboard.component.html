@@ -14,7 +14,7 @@
       ></mat-card
     >
   </div>
-  <div class="transaction">
+  <div class="transaction" *ngIf="balance > 0">
     <h2 style="color: #673ab7">My Savings</h2>
     <app-dashboard-saving [balanceAmount]="balance"></app-dashboard-saving>
   </div>

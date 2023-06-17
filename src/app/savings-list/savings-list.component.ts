@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AddSavingsService } from '../add-savings.service';
-
+interface Savings {
+  name: string;
+  date: Date;
+  amount: number;
+  total: number;
+}
 @Component({
   selector: 'app-savings-list',
   templateUrl: './savings-list.component.html',
@@ -22,10 +27,15 @@ export class SavingsListComponent {
 
   getSavings() {
     this.savingService.getSaving().subscribe((val) => {
-      this.savings = val;
-      this.savings.length > 0
-        ? (this.showAddButton = false)
-        : (this.showAddButton = true);
+      this.savings = val as Array<Savings>;
+      this.savings = this.savings.sort((a: Savings, b: Savings) => {
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
+      });
+      this.savings.forEach((val: Savings) => {
+        if (new Date(val.date).getMonth() === new Date().getMonth()) {
+          this.showAddButton = false;
+        }
+      });
     });
   }
 
