@@ -26,6 +26,8 @@ import { EditSavingsFormComponent } from './edit-savings-form/edit-savings-form.
 import { SavingsDisplayComponent } from './savings-display/savings-display.component';
 import { SavingsListComponent } from './savings-list/savings-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { TotalAmountFormComponent } from './total-amount-form/total-amount-form.component';
+import { DashboardSavingComponent } from './dashboard-saving/dashboard-saving.component';
 
 const routes: Routes = [
   {
@@ -61,6 +63,10 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
   },
+  {
+    path: 'total-amount',
+    component: TotalAmountFormComponent,
+  },
 ];
 
 @NgModule({
@@ -76,6 +82,8 @@ const routes: Routes = [
     SavingsDisplayComponent,
     SavingsListComponent,
     DashboardComponent,
+    TotalAmountFormComponent,
+    DashboardSavingComponent,
   ],
   imports: [
     BrowserModule,

@@ -44,19 +44,6 @@
               >amount is required *</mat-error
             >
           </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <mat-label>Total</mat-label>
-            <input
-              type="number"
-              matInput
-              placeholder="Enter total amount"
-              formControlName="total"
-            />
-            <mat-error
-              *ngIf="totalError?.invalid && totalError?.touched && totalError?.errors?.['required']"
-              >Total is required *</mat-error
-            >
-          </mat-form-field>
           <button
             type="submit"
             mat-raised-button

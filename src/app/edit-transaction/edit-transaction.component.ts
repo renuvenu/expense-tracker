@@ -14,6 +14,7 @@ export class EditTransactionComponent {
     amount: ['', Validators.required],
     category: ['', Validators.required],
     description: ['', Validators.required],
+    transactionType: ['', Validators.required],
   });
 
   categories = [
@@ -25,6 +26,15 @@ export class EditTransactionComponent {
     },
     {
       value: 'entertainment',
+    },
+  ];
+
+  transactionTypes = [
+    {
+      value: 'Credit',
+    },
+    {
+      value: 'Debit',
     },
   ];
 
@@ -77,5 +87,9 @@ export class EditTransactionComponent {
 
   get descriptionError() {
     return this.transactionForm.get('description');
+  }
+
+  get transactionError() {
+    return this.transactionForm.get('transactionType');
   }
 }

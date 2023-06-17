@@ -14,6 +14,7 @@ export class AddTransactionFormComponent {
     amount: ['', Validators.required],
     category: ['', Validators.required],
     description: ['', Validators.required],
+    transactionType: ['', Validators.required],
   });
 
   categories = [
@@ -25,6 +26,15 @@ export class AddTransactionFormComponent {
     },
     {
       value: 'entertainment',
+    },
+  ];
+
+  transactionTypes = [
+    {
+      value: 'Credit',
+    },
+    {
+      value: 'Debit',
     },
   ];
 
@@ -44,11 +54,6 @@ export class AddTransactionFormComponent {
         this.transactionForm.reset();
         this.router.navigate(['/tracker']);
       });
-
-    // this.moviesService
-    //   .updateMovie(this.editMovieId, this.transactionForm.value)
-    //   .subscribe((val) => this.router.navigate(['/movies']));
-    // this.transactionForm.reset();
   }
 
   get dateError() {
@@ -65,5 +70,9 @@ export class AddTransactionFormComponent {
 
   get descriptionError() {
     return this.transactionForm.get('description');
+  }
+
+  get transactionError() {
+    return this.transactionForm.get('transactionType');
   }
 }

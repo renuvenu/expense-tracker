@@ -14,8 +14,7 @@ export class AddSavingsFprmComponent {
   transactionForm = this.fb.group({
     date: [, Validators.required],
     amount: ['', Validators.required],
-    name: ['', Validators.required],
-    total: [, Validators.required],
+    name: ['', Validators.required]
   });
 
   constructor(
@@ -34,11 +33,6 @@ export class AddSavingsFprmComponent {
         this.transactionForm.reset();
         this.router.navigate(['/savings']);
       });
-
-    // this.moviesService
-    //   .updateMovie(this.editMovieId, this.transactionForm.value)
-    //   .subscribe((val) => this.router.navigate(['/movies']));
-    // this.transactionForm.reset();
   }
 
   get dateError() {

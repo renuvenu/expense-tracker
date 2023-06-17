@@ -1,0 +1,32 @@
+<div>
+  <mat-card class="card">
+    <mat-card-content>
+      <h2>Total Amount data</h2>
+      <form [formGroup]="totalAmountForm" (ngSubmit)="onSubmit()">
+        <div class="container">
+          <mat-form-field class="example-full-width">
+            <mat-label>amount</mat-label>
+            <input
+              type="number"
+              matInput
+              formControlName="amount"
+              placeholder="Enter amount"
+            />
+            <mat-error
+              *ngIf="amountError?.invalid && amountError?.touched && amountError?.errors?.['required']"
+              >amount is required *</mat-error
+            >
+          </mat-form-field>
+          <button
+            type="submit"
+            mat-raised-button
+            color="primary"
+            [disabled]="totalAmountForm.invalid"
+          >
+            Add amount
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

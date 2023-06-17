@@ -9,33 +9,33 @@ export class TransactionServiceService {
 
   addTransaction(data: any) {
     return this.http.post(
-      `https://648a951317f1536d65e94e70.mockapi.io/expense-tracker`,
+      `https://648c6cf98620b8bae7ece374.mockapi.io/transaction`,
       data
     );
   }
 
   getTransactions() {
     return this.http.get(
-      'https://648a951317f1536d65e94e70.mockapi.io/expense-tracker'
+      'https://648c6cf98620b8bae7ece374.mockapi.io/transaction'
     );
   }
 
   editTransactions(id: string, data: any) {
     return this.http.put(
-      `https://648a951317f1536d65e94e70.mockapi.io/expense-tracker/${id}`,
+      `https://648c6cf98620b8bae7ece374.mockapi.io/transaction/${id}`,
       data
     );
   }
 
   deleteTransaction(id: string) {
     return this.http.delete(
-      `https://648a951317f1536d65e94e70.mockapi.io/expense-tracker/${id}`
+      `https://648c6cf98620b8bae7ece374.mockapi.io/transaction/${id}`
     );
   }
 
   getTransactionDetail(id: string) {
     return this.http.get(
-      `https://648a951317f1536d65e94e70.mockapi.io/expense-tracker/${id}`
+      `https://648c6cf98620b8bae7ece374.mockapi.io/transaction/${id}`
     );
   }
 }

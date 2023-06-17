@@ -1,0 +1,17 @@
+<mat-card class="card">
+  <mat-card-content class="card-content">
+    <div>
+      <h2 *ngIf="savings[0]?.amount === balanceAmount">
+        Hey, you have successfully reached your savings goal 🎉🎉
+      </h2>
+      <h2 *ngIf="balanceAmount > savings[0]?.amount">
+        Hey, you have successfully reached your savings goal with an extra
+        saving of 💰 {{ balanceAmount - savings[0]?.amount }} 🎉😍😍
+      </h2>
+      <h2 *ngIf="balanceAmount < savings[0]?.amount">
+        OOps!!! Small savings can improve your living standards. You have to
+        save 💰{{ savings[0]?.amount - balanceAmount }} to reach your goal 🤞😎
+      </h2>
+    </div>
+  </mat-card-content></mat-card
+>

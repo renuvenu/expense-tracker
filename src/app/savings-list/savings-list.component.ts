@@ -14,6 +14,7 @@ export class SavingsListComponent {
   ) {}
 
   savings: any;
+  showAddButton = true;
 
   ngOnInit() {
     this.getSavings();
@@ -22,7 +23,9 @@ export class SavingsListComponent {
   getSavings() {
     this.savingService.getSaving().subscribe((val) => {
       this.savings = val;
-      console.log(this.savings);
+      this.savings.length > 0
+        ? (this.showAddButton = false)
+        : (this.showAddButton = true);
     });
   }
 

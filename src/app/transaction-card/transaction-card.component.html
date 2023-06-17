@@ -14,8 +14,22 @@
         </h2>
       </div>
       <div class="amount">
-        <p style="font-weight: 600">{{ transaction.description }}</p>
-        <h2>💲{{ transaction.amount }}</h2>
+        <div class="descr">
+          <p style="font-weight: 600">{{ transaction.description }}</p>
+        </div>
+        <h2>
+          <span
+            *ngIf="transaction.transactionType === 'Credit'"
+            style="color: green; font-size: x-large"
+            >+</span
+          >
+          <span
+            *ngIf="transaction.transactionType === 'Debit'"
+            style="color: red; font-size: x-large"
+            >-</span
+          >
+          {{ transaction.amount }}
+        </h2>
       </div>
     </div>
     <div class="movie-content">

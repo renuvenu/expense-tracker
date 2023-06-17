@@ -8,6 +8,7 @@ interface Transaction {
   amount: number;
   category: string;
   description: string;
+  transactionType: string
 }
 @Component({
   selector: 'app-transaction-card',
@@ -21,6 +22,7 @@ export class TransactionCardComponent {
     amount: 0,
     category: '',
     description: '',
+    transactionType: ''
   };
   @Output() idToDelete: EventEmitter<any> = new EventEmitter();
   constructor(private http: HttpClient, private router: Router) {}

@@ -47,6 +47,21 @@
             >
           </mat-form-field>
           <mat-form-field class="example-full-width">
+            <mat-label>Transaction Type</mat-label>
+            <mat-select formControlName="transactionType">
+              <mat-option
+                *ngFor="let transaction of transactionTypes"
+                [value]="transaction.value"
+              >
+                {{ transaction.value }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="transactionError?.invalid && transactionError?.touched && transactionError?.errors?.['required']"
+              >Transaction is required *</mat-error
+            >
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
             <mat-label>Description</mat-label>
             <input
               type="text"

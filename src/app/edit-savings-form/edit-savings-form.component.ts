@@ -13,7 +13,7 @@ export class EditSavingsFormComponent {
     date: [, Validators.required],
     amount: ['', Validators.required],
     name: ['', Validators.required],
-    total: [, Validators.required],
+    // total: [, Validators.required],
   });
 
   editId = '';

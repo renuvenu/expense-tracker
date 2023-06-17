@@ -1,10 +1,31 @@
-<div class="container">
-  <mat-card class="card">
-    <mat-card-content class="card-content">
-      <div class="movie-content">
-        <h2>Current Balance</h2>
-        <h4>45,000</h4>
-      </div></mat-card-content
-    ></mat-card
-  >
+<div class="content">
+  <div class="add-amount">
+    <button mat-raised-button color="primary" (click)="addTotalAmount()">
+      Change Total Amount
+    </button>
+  </div>
+  <div class="container">
+    <mat-card class="card">
+      <mat-card-content class="card-content">
+        <div class="movie-content">
+          <h2>Current Balance</h2>
+          <h2>💰💲{{ balance }}</h2>
+        </div></mat-card-content
+      ></mat-card
+    >
+  </div>
+  <div class="transaction">
+    <h2 style="color: #673ab7">My Savings</h2>
+    <app-dashboard-saving [balanceAmount]="balance"></app-dashboard-saving>
+  </div>
+  <div class="transaction">
+    <h2 style="color: #673ab7">Recent Transactions</h2>
+    <ng-container *ngFor="let transaction of transactionDetails; let i = index">
+      <app-transaction-card
+        *ngIf="i < 3"
+        [transaction]="transaction"
+        (idToDelete)="onDelete()"
+      ></app-transaction-card>
+    </ng-container>
+  </div>
 </div>
