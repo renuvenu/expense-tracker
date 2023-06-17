@@ -1,8 +1,9 @@
-import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Chart, registerables, ChartItem } from 'chart.js';
 import { TransactionServiceService } from '../transaction-service.service';
 import { AddSavingsService } from '../add-savings.service';
 Chart.register(...registerables);
+
 interface Transaction {
   id: string;
   date: Date;
@@ -19,17 +20,30 @@ interface Savings {
   total: number;
 }
 @Component({
-  selector: 'app-statistics',
-  templateUrl: './statistics.component.html',
-  styleUrls: ['./statistics.component.css'],
+  selector: 'app-income-expenses',
+  templateUrl: './income-expenses.component.html',
+  styleUrls: ['./income-expenses.component.css'],
 })
-export class StatisticsComponent implements AfterViewInit {
+export class IncomeExpensesComponent {
   @ViewChild('statisticsChart', { static: true })
   chartCanvas!: ElementRef<HTMLCanvasElement>;
-  statisticalData: number[] = new Array(12).fill(0); // Example data
+  statisticalData: number[] = []; // Example data
   savings: any;
   transactions: any;
-  showLoader = true;
+  datas: String[] = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sept',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
   constructor(
     private transactionService: TransactionServiceService,
     private savingsService: AddSavingsService
@@ -51,6 +65,12 @@ export class StatisticsComponent implements AfterViewInit {
               new Date(val.date).getMonth()
           );
           let total = val.total;
+          let tot = val.total;
+          this.datas[new Date(val.date).getMonth()] =
+            this.datas[new Date(val.date).getMonth()] +
+            '(' +
+            (tot as any).toLocaleString('en-US') +
+            ')';
           trans.forEach((transaction: Transaction) => {
             if (transaction.transactionType === 'Credit') {
               total += transaction.amount;
@@ -59,11 +79,10 @@ export class StatisticsComponent implements AfterViewInit {
             }
           });
 
-          this.statisticalData[new Date(val.date).getMonth()] = total;
+          this.statisticalData[new Date(val.date).getMonth()] = tot - total;
 
           if (i === this.savings.length) {
             this.setAllData();
-            this.showLoader = false;
           }
         });
         // console.log(this.statisticalData);
@@ -84,23 +103,10 @@ export class StatisticsComponent implements AfterViewInit {
     const statisticsChart = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: [
-          'Jan',
-          'Feb',
-          'Mar',
-          'Apr',
-          'May',
-          'Jun',
-          'Jul',
-          'Aug',
-          'Sept',
-          'Oct',
-          'Nov',
-          'Dec',
-        ],
+        labels: [...this.datas],
         datasets: [
           {
-            label: 'Savings',
+            label: 'Expenses',
             data: this.statisticalData,
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
             borderColor: 'rgba(75, 192, 192, 1)',

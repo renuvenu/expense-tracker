@@ -1,0 +1,8 @@
+.graph {
+    display: flex;
+    align-items: center;
+    max-width: 950px;
+    justify-content: center;
+    padding: 24px;
+    flex-wrap: wrap;
+}

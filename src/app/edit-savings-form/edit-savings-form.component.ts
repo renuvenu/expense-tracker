@@ -17,6 +17,7 @@ export class EditSavingsFormComponent {
   });
 
   editId = '';
+  showLoader = true
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -31,6 +32,7 @@ export class EditSavingsFormComponent {
 
     this.savingService.getSavingDetail(this.editId).subscribe((val) => {
       this.transactionForm.patchValue(val);
+      this.showLoader = false
     });
   }
 

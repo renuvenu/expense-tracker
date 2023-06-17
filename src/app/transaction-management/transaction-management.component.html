@@ -1,20 +1,23 @@
-<div class="container">
-  <div class="button">
-    <button
-      type="submit"
-      mat-raised-button
-      color="primary"
-      (click)="gotoAddTransaction()"
-    >
-      Add transaction
-    </button>
+<app-loader *ngIf="!transactions; else details"></app-loader>
+<ng-template #details>
+  <div class="container">
+    <div class="button">
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        (click)="gotoAddTransaction()"
+      >
+        Add transaction
+      </button>
+    </div>
+    <div class="cards">
+      <ng-container *ngFor="let transaction of transactions">
+        <app-transaction-card
+          [transaction]="transaction"
+          (idToDelete)="onDelete($event)"
+        ></app-transaction-card>
+      </ng-container>
+    </div>
   </div>
-  <div class="cards">
-    <ng-container *ngFor="let transaction of transactions">
-      <app-transaction-card
-        [transaction]="transaction"
-        (idToDelete)="onDelete($event)"
-      ></app-transaction-card>
-    </ng-container>
-  </div>
-</div>
+</ng-template>

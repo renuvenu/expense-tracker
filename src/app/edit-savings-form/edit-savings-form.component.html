@@ -1,72 +1,75 @@
-<div>
-  <mat-card class="card">
-    <mat-card-content>
-      <h2>Edit Saving Details</h2>
-      <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
-        <div class="container">
-          <mat-form-field class="example-full-width">
-            <mat-label>Name</mat-label>
-            <input
-              type="text"
-              matInput
-              formControlName="name"
-              placeholder="Enter name"
-            />
-            <mat-error
-              *ngIf="nameError?.invalid && nameError?.touched && nameError?.errors?.['required']"
-              >Name is required *</mat-error
+<app-loader *ngIf="showLoader; else display"></app-loader>
+<ng-template #display>
+  <div>
+    <mat-card class="card">
+      <mat-card-content>
+        <h2>Edit Saving Details</h2>
+        <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+          <div class="container">
+            <mat-form-field class="example-full-width">
+              <mat-label>Name</mat-label>
+              <input
+                type="text"
+                matInput
+                formControlName="name"
+                placeholder="Enter name"
+              />
+              <mat-error
+                *ngIf="nameError?.invalid && nameError?.touched && nameError?.errors?.['required']"
+                >Name is required *</mat-error
+              >
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Choose a date</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="date" />
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle
+                matIconSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-error
+                *ngIf="dateError?.invalid && dateError?.touched && dateError?.errors?.['required']"
+                >Date is required *</mat-error
+              >
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>amount</mat-label>
+              <input
+                type="number"
+                matInput
+                formControlName="amount"
+                placeholder="Enter amount"
+              />
+              <mat-error
+                *ngIf="amountError?.invalid && amountError?.touched && amountError?.errors?.['required']"
+                >amount is required *</mat-error
+              >
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Total</mat-label>
+              <input
+                type="number"
+                matInput
+                placeholder="Enter total amount"
+                formControlName="total"
+              />
+              <mat-error
+                *ngIf="totalError?.invalid && totalError?.touched && totalError?.errors?.['required']"
+                >Total is required *</mat-error
+              >
+            </mat-form-field>
+            <button
+              type="submit"
+              mat-raised-button
+              color="primary"
+              [disabled]="transactionForm.invalid"
             >
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <mat-label>Choose a date</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="date" />
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle
-              matIconSuffix
-              [for]="picker"
-            ></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-            <mat-error
-              *ngIf="dateError?.invalid && dateError?.touched && dateError?.errors?.['required']"
-              >Date is required *</mat-error
-            >
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <mat-label>amount</mat-label>
-            <input
-              type="number"
-              matInput
-              formControlName="amount"
-              placeholder="Enter amount"
-            />
-            <mat-error
-              *ngIf="amountError?.invalid && amountError?.touched && amountError?.errors?.['required']"
-              >amount is required *</mat-error
-            >
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <mat-label>Total</mat-label>
-            <input
-              type="number"
-              matInput
-              placeholder="Enter total amount"
-              formControlName="total"
-            />
-            <mat-error
-              *ngIf="totalError?.invalid && totalError?.touched && totalError?.errors?.['required']"
-              >Total is required *</mat-error
-            >
-          </mat-form-field>
-          <button
-            type="submit"
-            mat-raised-button
-            color="primary"
-            [disabled]="transactionForm.invalid"
-          >
-            Edit Saving
-          </button>
-        </div>
-      </form>
-    </mat-card-content>
-  </mat-card>
-</div>
+              Edit Saving
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</ng-template>

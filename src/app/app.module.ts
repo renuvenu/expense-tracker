@@ -29,6 +29,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { TotalAmountFormComponent } from './total-amount-form/total-amount-form.component';
 import { DashboardSavingComponent } from './dashboard-saving/dashboard-saving.component';
 import { StatisticsComponent } from './statistics/statistics.component';
+import { LoaderComponent } from './loader/loader.component';
+import { IncomeExpensesComponent } from './income-expenses/income-expenses.component';
 
 const routes: Routes = [
   {
@@ -90,6 +92,8 @@ const routes: Routes = [
     TotalAmountFormComponent,
     DashboardSavingComponent,
     StatisticsComponent,
+    LoaderComponent,
+    IncomeExpensesComponent,
   ],
   imports: [
     BrowserModule,

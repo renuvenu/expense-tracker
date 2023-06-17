@@ -46,6 +46,7 @@ export class EditTransactionComponent {
   ) {}
 
   editId: string = '';
+  showLoader = true
 
   ngOnInit() {
     this.route.params.subscribe((r) => {
@@ -56,6 +57,7 @@ export class EditTransactionComponent {
       .getTransactionDetail(this.editId)
       .subscribe((val) => {
         this.transactionForm.patchValue(val);
+        this.showLoader = false
       });
   }
 
