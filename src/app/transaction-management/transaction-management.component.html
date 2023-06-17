@@ -11,7 +11,10 @@
   </div>
   <div class="cards">
     <ng-container *ngFor="let transaction of transactions">
-      <app-transaction-card [transaction]="transaction" (idToDelete)="onDelete($event)"></app-transaction-card>
+      <app-transaction-card
+        [transaction]="transaction"
+        (idToDelete)="onDelete($event)"
+      ></app-transaction-card>
     </ng-container>
   </div>
 </div>

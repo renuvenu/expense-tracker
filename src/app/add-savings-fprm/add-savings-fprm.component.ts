@@ -14,7 +14,8 @@ export class AddSavingsFprmComponent {
   transactionForm = this.fb.group({
     date: [, Validators.required],
     amount: ['', Validators.required],
-    name: ['', Validators.required]
+    name: ['', Validators.required],
+    total: [, Validators.required],
   });
 
   constructor(

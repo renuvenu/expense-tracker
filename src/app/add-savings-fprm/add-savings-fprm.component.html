@@ -32,16 +32,29 @@
             >
           </mat-form-field>
           <mat-form-field class="example-full-width">
-            <mat-label>amount</mat-label>
+            <mat-label>Amount</mat-label>
             <input
               type="number"
               matInput
               formControlName="amount"
-              placeholder="Enter amount"
+              placeholder="Enter savings amount"
             />
             <mat-error
               *ngIf="amountError?.invalid && amountError?.touched && amountError?.errors?.['required']"
               >amount is required *</mat-error
+            >
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Total amount</mat-label>
+            <input
+              type="number"
+              matInput
+              placeholder="Enter total amount"
+              formControlName="total"
+            />
+            <mat-error
+              *ngIf="totalError?.invalid && totalError?.touched && totalError?.errors?.['required']"
+              >Total amount is required *</mat-error
             >
           </mat-form-field>
           <button

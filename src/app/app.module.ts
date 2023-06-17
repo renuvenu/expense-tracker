@@ -28,6 +28,7 @@ import { SavingsListComponent } from './savings-list/savings-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TotalAmountFormComponent } from './total-amount-form/total-amount-form.component';
 import { DashboardSavingComponent } from './dashboard-saving/dashboard-saving.component';
+import { StatisticsComponent } from './statistics/statistics.component';
 
 const routes: Routes = [
   {
@@ -67,6 +68,10 @@ const routes: Routes = [
     path: 'total-amount',
     component: TotalAmountFormComponent,
   },
+  {
+    path: 'statistics',
+    component: StatisticsComponent,
+  },
 ];
 
 @NgModule({
@@ -84,6 +89,7 @@ const routes: Routes = [
     DashboardComponent,
     TotalAmountFormComponent,
     DashboardSavingComponent,
+    StatisticsComponent,
   ],
   imports: [
     BrowserModule,
