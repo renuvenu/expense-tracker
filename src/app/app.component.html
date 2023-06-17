@@ -1,2 +1,58 @@
-<app-side-bar></app-side-bar>
-<router-outlet></router-outlet>
+<!-- <app-side-bar></app-side-bar>
+<router-outlet></router-outlet> -->
+<mat-drawer-container class="example-container" autosize>
+  <mat-toolbar color="primary" class="nav">
+    <button
+      mat-icon-button
+      style="color: white"
+      aria-label="Example icon button with a home icon"
+      (click)="drawer.toggle()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h2 style="margin: 0">Expense Tracker</h2>
+  </mat-toolbar>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <mat-toolbar class="nav1">
+      <h2 style="margin: 0">Menu</h2>
+    </mat-toolbar>
+    <div class="menus">
+      <button
+        mat-raised-button
+        color="primary"
+        [routerLink]="['dashboard']"
+        (click)="drawer.toggle()"
+      >
+        Dashboard
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        [routerLink]="['tracker']"
+        (click)="drawer.toggle()"
+      >
+        Transactions
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        [routerLink]="['savings']"
+        (click)="drawer.toggle()"
+      >
+        Savings
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        [routerLink]="['dashboard']"
+        (click)="drawer.toggle()"
+      >
+        Statistics
+      </button>
+    </div>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>

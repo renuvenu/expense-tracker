@@ -18,7 +18,7 @@
     <h2 style="color: #673ab7">My Savings</h2>
     <app-dashboard-saving [balanceAmount]="balance"></app-dashboard-saving>
   </div>
-  <div class="transaction">
+  <div class="transaction" *ngIf="transactionDetails">
     <h2 style="color: #673ab7">Recent Transactions</h2>
     <ng-container *ngFor="let transaction of transactionDetails; let i = index">
       <app-transaction-card
