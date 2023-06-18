@@ -27,7 +27,6 @@ export class TransactionManagementComponent {
       this.transactions = this.transactions.sort((a: any, b: any) => {
         return new Date(b.date).getTime() - new Date(a.date).getTime();
       });
-      console.log(this.transactions);
     });
   }
 

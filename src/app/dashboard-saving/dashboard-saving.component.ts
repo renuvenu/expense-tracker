@@ -34,7 +34,6 @@ export class DashboardSavingComponent {
       this.savings = amount.find(
         (val) => new Date(val.date).getMonth() === new Date().getMonth()
       );
-      console.log(this.savings);
     });
   }
 }
