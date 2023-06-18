@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { TransactionServiceService } from '../transaction-service.service';
-import { SavingsDisplayComponent } from '../savings-display/savings-display.component';
 import { AddSavingsService } from '../add-savings.service';
 
 @Component({
@@ -21,7 +19,6 @@ export class AddSavingsFprmComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute,
     private savingService: AddSavingsService
   ) {}
 

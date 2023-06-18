@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { TotalAmountService } from '../total-amount.service';
 import { TransactionServiceService } from '../transaction-service.service';
 import { AddSavingsService } from '../add-savings.service';
 
@@ -28,7 +27,6 @@ interface Savings {
 export class DashboardComponent {
   constructor(
     private router: Router,
-    private totalAmountService: TotalAmountService,
     private savingsService: AddSavingsService,
     private transactionService: TransactionServiceService
   ) {}

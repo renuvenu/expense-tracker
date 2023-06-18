@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { Chart, registerables, ChartItem } from 'chart.js';
+import { Chart, registerables } from 'chart.js';
 import { TransactionServiceService } from '../transaction-service.service';
 import { AddSavingsService } from '../add-savings.service';
 Chart.register(...registerables);
@@ -34,9 +34,6 @@ export class StatisticsComponent implements AfterViewInit {
     private transactionService: TransactionServiceService,
     private savingsService: AddSavingsService
   ) {}
-  ngOnInit() {
-    // this.setAllData();
-  }
   ngAfterViewInit() {
     let i = 0;
     this.savingsService.getSaving().subscribe((val) => {

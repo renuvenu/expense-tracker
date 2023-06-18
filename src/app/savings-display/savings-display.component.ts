@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 interface Saving {
@@ -22,7 +21,7 @@ export class SavingsDisplayComponent {
     total: 0,
   };
   @Output() idToDelete: EventEmitter<any> = new EventEmitter();
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private router: Router) {}
   onEdit(id: string) {
     this.router.navigate(['/edit-savings', id]);
   }

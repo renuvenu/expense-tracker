@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { TransactionServiceService } from '../transaction-service.service';
 import { Router } from '@angular/router';
 interface Transaction {
   id: string;
