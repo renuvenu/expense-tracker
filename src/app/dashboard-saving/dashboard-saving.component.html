@@ -1,6 +1,6 @@
 <mat-card class="card">
   <mat-card-content class="card-content">
-    <div>
+    <div *ngIf="savings">
       <h2 *ngIf="savings?.amount === balanceAmount">
         Hey, you have successfully reached your savings goal 🎉🎉
       </h2>
