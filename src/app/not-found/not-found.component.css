@@ -1,0 +1,12 @@
+img {
+    max-width: 400px;
+    height: 400px;
+    object-fit: cover;
+}
+
+div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+}

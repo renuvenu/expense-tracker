@@ -31,6 +31,7 @@ import { DashboardSavingComponent } from './dashboard-saving/dashboard-saving.co
 import { StatisticsComponent } from './statistics/statistics.component';
 import { LoaderComponent } from './loader/loader.component';
 import { IncomeExpensesComponent } from './income-expenses/income-expenses.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -74,6 +75,10 @@ const routes: Routes = [
     path: 'statistics',
     component: StatisticsComponent,
   },
+  {
+    path: '**',
+    component: NotFoundComponent,
+  },
 ];
 
 @NgModule({
@@ -94,6 +99,7 @@ const routes: Routes = [
     StatisticsComponent,
     LoaderComponent,
     IncomeExpensesComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
